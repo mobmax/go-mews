@@ -1,6 +1,7 @@
 package mews
 
 import (
+	"github.com/mobmax/go-mews/orders"
 	"net/http"
 	"net/url"
 
@@ -15,6 +16,7 @@ import (
 	"github.com/mobmax/go-mews/json"
 	"github.com/mobmax/go-mews/outletitems"
 	"github.com/mobmax/go-mews/reservations"
+	"github.com/mobmax/go-mews/services"
 	"github.com/mobmax/go-mews/spaceblocks"
 	"github.com/mobmax/go-mews/spaces"
 	"github.com/mobmax/go-mews/tasks"
@@ -83,6 +85,10 @@ func NewClient(httpClient *http.Client, accessToken string, clientToken string) 
 	c.BusinessSegments.Client = c.client
 	c.Tasks = tasks.NewService()
 	c.Tasks.Client = c.client
+	c.Services = services.NewAPIService()
+	c.Services.Client = c.client
+	c.Orders = orders.NewService()
+	c.Orders.Client = c.client
 
 	return c
 }
@@ -106,6 +112,8 @@ type Client struct {
 	Configuration        *configuration.Service
 	BusinessSegments     *businesssegments.Service
 	Tasks                *tasks.Service
+	Services			 *services.APIService
+	Orders				 *orders.Service
 }
 
 func (c *Client) SetDebug(debug bool) {
@@ -127,3 +135,4 @@ func (c *Client) SetLanguageCode(code string) {
 func (c *Client) SetCultureCode(code string) {
 	c.client.SetCultureCode(code)
 }
+
