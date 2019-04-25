@@ -35,7 +35,7 @@ func (s *Service) All(requestBody *AllRequest) (*AllResponse, error) {
 
 	_, err = s.Client.Do(httpReq, responseBody)
 
-	for k, _ := range responseBody.OutletItems {
+	for k := range responseBody.OutletItems {
 		responseBody.OutletItems[k].Amount = responseBody.OutletItems[k].GenerateAmount()
 	}
 
