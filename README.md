@@ -3,7 +3,7 @@
 go-mews is an API client library for accessing the Mews API v1.
 
 API documentation can be found here:
-https://mewssystems.github.io/public/content/developers/api.html
+https://mews-systems.gitbook.io/connector-api/
 
 ## Usage
 
