@@ -1,6 +1,6 @@
 package businesssegments
 
-import "github.com/tim-online/go-mews/json"
+import "github.com/mobmax/go-mews/json"
 
 const (
 	endpointAll = "businesssegments/getAll"

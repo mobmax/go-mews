@@ -3,7 +3,7 @@ package tasks
 import (
 	"time"
 
-	"github.com/tim-online/go-mews/json"
+	"github.com/mobmax/go-mews/json"
 )
 
 const (

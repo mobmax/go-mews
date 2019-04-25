@@ -1,6 +1,6 @@
 package bills
 
-import "github.com/tim-online/go-mews/json"
+import "github.com/mobmax/go-mews/json"
 
 type Service struct {
 	Client *json.Client

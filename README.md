@@ -8,7 +8,7 @@ https://mewssystems.github.io/public/content/developers/api.html
 ## Usage
 
 ``` go
-import "github.com/tim-online/go-mews"
+import "github.com/mobmax/go-mews"
 ```
 
 ### Request companies
@@ -34,7 +34,7 @@ categories := resp.AccountingCategories
 ### Request all employees for a company
 
 ``` go
-import "github.com/tim-online/go-nmbrs/employees"
+import "github.com/mobmax/go-nmbrs/employees"
 
 // get id of company
 companyID := companies[0].ID

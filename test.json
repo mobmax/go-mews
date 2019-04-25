@@ -9,4 +9,4 @@ Accept-Encoding: gzip
 {"AccessToken":"C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D","StartUtc":"2017-11-27T15:21:18.753773582+01:00","EndUtc":"2017-12-27T15:21:18.753816919+01:00"}
 
 signal: interrupt
-FAIL	github.com/tim-online/go-mews	0.319s
+FAIL	github.com/mobmax/go-mews	0.319s

@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	mews "github.com/tim-online/go-mews"
-	"github.com/tim-online/go-mews/accountingcategories"
-	"github.com/tim-online/go-mews/accountingitems"
-	"github.com/tim-online/go-mews/bills"
-	"github.com/tim-online/go-mews/companies"
-	"github.com/tim-online/go-mews/customers"
-	"github.com/tim-online/go-mews/reservations"
+	"github.com/mobmax/go-mews"
+	"github.com/mobmax/go-mews/accountingcategories"
+	"github.com/mobmax/go-mews/accountingitems"
+	"github.com/mobmax/go-mews/bills"
+	"github.com/mobmax/go-mews/companies"
+	"github.com/mobmax/go-mews/customers"
+	"github.com/mobmax/go-mews/reservations"
 )
 
 func getClient() *mews.Client {

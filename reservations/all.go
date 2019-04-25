@@ -3,10 +3,10 @@ package reservations
 import (
 	"time"
 
-	"github.com/tim-online/go-mews/accountingitems"
-	"github.com/tim-online/go-mews/configuration"
-	"github.com/tim-online/go-mews/customers"
-	"github.com/tim-online/go-mews/json"
+	"github.com/mobmax/go-mews/accountingitems"
+	"github.com/mobmax/go-mews/configuration"
+	"github.com/mobmax/go-mews/customers"
+	"github.com/mobmax/go-mews/json"
 )
 
 const (

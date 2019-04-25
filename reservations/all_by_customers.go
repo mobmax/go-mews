@@ -1,6 +1,6 @@
 package reservations
 
-import "github.com/tim-online/go-mews/json"
+import "github.com/mobmax/go-mews/json"
 
 const (
 	endpointAllByCustomers = "reservations/getAllByCustomers"
