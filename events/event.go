@@ -53,7 +53,6 @@ func (h *EventHandler) Handling() {
 			h.eventHandlers.Send(&handlers.Events[i])
 		}
 	}
-
 }
 
 // Handler function definition.
