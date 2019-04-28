@@ -1,7 +1,6 @@
 package mews
 
 import (
-	"github.com/mobmax/go-mews/orders"
 	"net/http"
 	"net/url"
 
@@ -14,6 +13,7 @@ import (
 	"github.com/mobmax/go-mews/configuration"
 	"github.com/mobmax/go-mews/customers"
 	"github.com/mobmax/go-mews/json"
+	"github.com/mobmax/go-mews/orders"
 	"github.com/mobmax/go-mews/outletitems"
 	"github.com/mobmax/go-mews/reservations"
 	"github.com/mobmax/go-mews/services"
