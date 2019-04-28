@@ -19,8 +19,8 @@ var (
 	charset          = "utf-8"
 	defaultTimeout   = 10 * time.Second
 
-	ErrNoAccessToken = errors.New("No access token specified")
-	ErrNoClientToken = errors.New("No client token specified")
+	ErrNoAccessToken = errors.New("no access token specified")
+	ErrNoClientToken = errors.New("no client token specified")
 )
 
 type Client struct {
