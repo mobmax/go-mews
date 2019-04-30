@@ -1,6 +1,7 @@
 package mews
 
 import (
+	"github.com/mobmax/go-mews/events"
 	"net/http"
 	"net/url"
 
@@ -136,6 +137,6 @@ func (c *Client) SetCultureCode(code string) {
 	c.client.SetCultureCode(code)
 }
 
-func (c *Client) GetHost() string {
-	return c.client.BaseURL.Host
+func (c* Client)EventSource() (*events.EventHandler, error) {
+	return events.Connect(c.client.BaseURL.Host, c.client.ClientToken, c.client.AccessToken)
 }
