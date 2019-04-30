@@ -15,7 +15,7 @@ type EventHandler struct {
 
 // Connect to the server for processing events
 func Connect(host string, clientToken string, accessToken string) (*EventHandler, error) {
-	origin := ""
+	origin := "https://" + host + "/wss/connector"
 	url := "wss://" + host + "/ws/connector?ClientToken=" + clientToken + "&AccessToken=" + accessToken
 	fmt.Println(origin)
 	ws, err := websocket.Dial(url, "wss", origin)
