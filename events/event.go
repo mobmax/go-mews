@@ -3,7 +3,6 @@ package events
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mobmax/go-mews"
 	"golang.org/x/net/websocket"
 	"log"
 	"time"
@@ -15,9 +14,9 @@ type EventHandler struct {
 }
 
 // Connect to the server for processing events
-func (c *mews.Client)Connect(clientToken string, accessToken string) (*EventHandler, error) {
+func Connect(host string, clientToken string, accessToken string) (*EventHandler, error) {
 	origin := ""
-	url := "wss://" + c.url.Host + "/ws/connector?ClientToken=" + clientToken + "&AccessToken=" + accessToken
+	url := "wss://" + host + "/ws/connector?ClientToken=" + clientToken + "&AccessToken=" + accessToken
 	fmt.Println(origin)
 	ws, err := websocket.Dial(url, "wss", origin)
 	if err != nil {

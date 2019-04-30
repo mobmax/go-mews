@@ -136,3 +136,6 @@ func (c *Client) SetCultureCode(code string) {
 	c.client.SetCultureCode(code)
 }
 
+func (c *Client) GetHost() string {
+	return c.client.BaseURL.Host
+}
