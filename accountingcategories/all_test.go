@@ -17,7 +17,7 @@ const (
 
 var (
 	mux     *http.ServeMux
-	client  *Service
+//	client  *Service
 	server  *httptest.Server
 	service *Service
 )
