@@ -147,6 +147,7 @@ func (h *EventHandler) Handle(handler Handler, events ...string) error {
 func (h *EventHandler) Close() error {
 	h.eventHandlers.Close()
 	if err := h.ws.Close(); err != nil {
+		h.ws = nil
 		return err
 	}
 	h.ws = nil
