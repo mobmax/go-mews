@@ -3,9 +3,10 @@ package events
 import (
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/websocket"
 	"log"
 	"time"
+
+	"golang.org/x/net/websocket"
 )
 
 type EventHandler struct {
@@ -40,8 +41,8 @@ func Connect(host string, clientToken string, accessToken string) (*EventHandler
 func (h *EventHandler) Handling() {
 	var (
 		handlers *MewsEvents
-		err error
-		)
+		err      error
+	)
 
 	decoder := json.NewDecoder(h.ws)
 	for {
@@ -67,9 +68,9 @@ func (h *EventHandler) AddHandler(handler Handler, events ...string) {
 	// make communication channel and make it available for all events names
 	go func() {
 		var eventChan = make(chan *MewsEvent, 1)
-		defer close(eventChan)                      // close channel on exit
+		defer close(eventChan) // close channel on exit
 		h.eventHandlers.Store(eventChan, events...)
-		defer h.eventHandlers.Delete(eventChan)     // remove handler on exit
+		defer h.eventHandlers.Delete(eventChan) // remove handler on exit
 
 		for {
 			select {
@@ -89,9 +90,8 @@ func (h *EventHandler) AddHandler(handler Handler, events ...string) {
 				}
 			}
 		}
-	} ()
+	}()
 }
-
 
 // HandleWait call handler function for processing all events from the server.
 // timeout define maximum time to wait response from the server
@@ -149,5 +149,13 @@ func (h *EventHandler) Close() error {
 	if err := h.ws.Close(); err != nil {
 		return err
 	}
+	h.ws = nil
 	return nil
+}
+
+func (h *EventHandler) IsRunning() bool {
+	if h.ws == nil {
+		return false
+	}
+	return true
 }
