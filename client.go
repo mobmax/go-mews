@@ -1,7 +1,6 @@
 package mews
 
 import (
-	"github.com/mobmax/go-mews/events"
 	"net/http"
 	"net/url"
 
@@ -13,6 +12,8 @@ import (
 	"github.com/mobmax/go-mews/companies"
 	"github.com/mobmax/go-mews/configuration"
 	"github.com/mobmax/go-mews/customers"
+	"github.com/mobmax/go-mews/departments"
+	"github.com/mobmax/go-mews/events"
 	"github.com/mobmax/go-mews/json"
 	"github.com/mobmax/go-mews/orders"
 	"github.com/mobmax/go-mews/outletitems"
@@ -24,7 +25,7 @@ import (
 )
 
 const (
-	libraryVersion = "0.0.1"
+	libraryVersion = "0.0.2"
 	userAgent      = "go-mews/" + libraryVersion
 )
 
@@ -90,6 +91,8 @@ func NewClient(httpClient *http.Client, accessToken string, clientToken string) 
 	c.Services.Client = c.client
 	c.Orders = orders.NewService()
 	c.Orders.Client = c.client
+	c.Departments = departments.NewService()
+	c.Departments.Client = c.client
 
 	return c
 }
@@ -113,8 +116,9 @@ type Client struct {
 	Configuration        *configuration.Service
 	BusinessSegments     *businesssegments.Service
 	Tasks                *tasks.Service
-	Services			 *services.APIService
-	Orders				 *orders.Service
+	Services             *services.APIService
+	Orders               *orders.Service
+	Departments          *departments.Service
 }
 
 func (c *Client) SetDebug(debug bool) {
@@ -137,6 +141,6 @@ func (c *Client) SetCultureCode(code string) {
 	c.client.SetCultureCode(code)
 }
 
-func (c* Client)EventSource() (*events.EventHandler, error) {
+func (c *Client) EventSource() (*events.EventHandler, error) {
 	return events.Connect(c.client.BaseURL.Host, c.client.ClientToken, c.client.AccessToken)
 }
